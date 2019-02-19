@@ -792,24 +792,28 @@ function playerAttackMove(){
 		else {
 			if (usePower == 1){
 				alert(className+" "+player+" uses their special power of "+abilityName+"! Your power "+abilityResult);
-				if (playerClass == 1){//Spellcasting
-					playerArmorStrength += 2;		
-				}
-				else if (playerClass == 2){//Strong Swing
-					playerDamage += 5;
-				}
-				else if (playerClass == 3){//Swift Stab
-					playerDamage += 3;
-				}
-				else if (playerClass == 4){//Health Steal
-					monsterHealth -= 5;
-					playerHealth += 5;
-				}
-				else if (playerClass == 5){//Stealth Attack
-					monsterHealth -= 2;
-				}
-				else if (playerClass == 6){//Quick Heal
-					playerHealth += 5;
+				switch (playerClass) {
+					case "1": //Spellcasting
+						playerArmorStrength += 2;
+						break;
+					case "2": //Strong Swing
+						playerDamage += 5;
+						break;
+					case "3": //Swift Stab
+						playerDamage += 3;
+						break;
+					case "4": //Health Steal
+						monsterHealth -= 5;
+						playerHealth += 5;
+						break;
+					case "5": //Stealth Attack
+						monsterHealth -= 2;
+						break;
+					case "6": //Quick Heal
+						playerHealth += 5;
+						break;
+					default:
+						break;
 				}
 				alert(className+" "+player+" attacks with "+yourMove+" which gives "+playerDamage+ " damage.");
 				monsterHealth -= playerDamage;

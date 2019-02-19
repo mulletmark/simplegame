@@ -490,37 +490,41 @@ function battleProgress(){ //called after match begins
 	switch (whoAttacks) {
 		case 0:
 			whoAttacks = Math.floor(Math.random() * 2);
-			if (monsterTypes[monsterID].type == "Troll"){
-				monsterMove = firstAttacks[firstAttackID].firstAttack;
-				monsterAttackMove();
-			}
-			else if (monsterTypes[monsterID].type == "Goblin"){
-				monsterMove = secondAttacks[secondAttackID].secondAttack;
-				monsterAttackMove();
-			}
-			else if (monsterTypes[monsterID].type == "Witch"){
-				monsterMove = thirdAttacks[thirdAttackID].thirdAttack;
-				monsterAttackMove();
-			}
-			else if (monsterTypes[monsterID].type == "Snake King"){
-				monsterMove = fourthAttacks[fourthAttackID].fourthAttack;
-				monsterAttackMove();
-			}
-			else if (monsterTypes[monsterID].type == "Eye Ball"){
-				monsterMove = fifthAttacks[fifthAttackID].fifthAttack;
-				monsterAttackMove();
-			}
-			else if (monsterTypes[monsterID].type == "Cyclops"){
-				monsterMove = sixthAttacks[sixthAttackID].sixthAttack;
-				monsterAttackMove();
-			}
-			else if (monsterTypes[monsterID].type == "Zombie"){
-				monsterMove = seventhAttacks[seventhAttackID].seventhAttack;
-				monsterAttackMove();
-			}
-			else if (monsterTypes[monsterID].type == "Dragon"){
-				monsterMove = eighthAttacks[eighthAttackID].eighthAttack;
-				monsterAttackMove();
+			switch (monsterTypes[monsterID].type) {
+				case "Troll":
+					monsterMove = firstAttacks[firstAttackID].firstAttack;
+					monsterAttackMove();
+					break;
+				case "Goblin":
+					monsterMove = secondAttacks[secondAttackID].secondAttack;
+					monsterAttackMove();
+					break;
+				case "Witch":
+					monsterMove = thirdAttacks[thirdAttackID].thirdAttack;
+					monsterAttackMove();
+					break;
+				case "Snake King":
+					monsterMove = fourthAttacks[fourthAttackID].fourthAttack;
+					monsterAttackMove();
+					break;
+				case "Eye Ball":
+					monsterMove = fifthAttacks[fifthAttackID].fifthAttack;
+					monsterAttackMove();
+					break;
+				case "Cyclops":
+					monsterMove = sixthAttacks[sixthAttackID].sixthAttack;
+					monsterAttackMove();
+					break;
+				case "Zombie":
+					monsterMove = seventhAttacks[seventhAttackID].seventhAttack;
+					monsterAttackMove();
+					break;
+				case "Dragon":
+					monsterMove = eighthAttacks[eighthAttackID].eighthAttack;
+					monsterAttackMove();
+					break;
+				default:
+					break;
 			}
 			break;
 		
@@ -533,23 +537,25 @@ function battleProgress(){ //called after match begins
 					}
 					else if (playerChoiceFlag == 1){
 						playerMove = prompt("Select a move: \nFreeze Spell = 1, Fire Spell = 2, Wind Spell = 3, Rock Spell = 4","move");
-						if (playerMove == "1"){
-							yourMove = player1Attacks[0].move1;
+						switch (playerMove) {
+							case "1":
+								yourMove = player1Attacks[0].move1;
+								break;
+							case "2":
+								yourMove = player1Attacks[1].move1;
+								break;
+							case "3":
+								yourMove = player1Attacks[2].move1;
+								break;
+							case "4":
+								yourMove = player1Attacks[3].move1;
+								break;
+							default:
+								alert("Please pick a move");
+								whoAttacks = 1;//to prevent it going to monster attack if you don't select correct number
+								battleProgress();
+								break;
 						}
-						else if (playerMove == "2"){
-							yourMove = player1Attacks[1].move1;
-						}
-						else if (playerMove == "3"){
-							yourMove = player1Attacks[2].move1;
-						}
-						else if (playerMove == "4"){
-							yourMove = player1Attacks[3].move1;
-						}
-						else {
-							alert("pick a move");
-							whoAttacks = 1;//to prevent it going to monster attack if you don't select correct number
-							battleProgress();
-						}		
 					}
 					playerAttackMove();
 					break;
@@ -559,22 +565,24 @@ function battleProgress(){ //called after match begins
 					}
 					else if (playerChoiceFlag == 1){
 						playerMove = prompt("Select a move: \nSlash = 1, Stab = 2, Cut = 3, Evicerate = 4","move");
-						if (playerMove == "1"){
-							yourMove = player2Attacks[0].move2;
-						}
-						else if (playerMove == "2"){
-							yourMove = player2Attacks[1].move2;
-						}
-						else if (playerMove == "3"){
-							yourMove = player2Attacks[2].move2;
-						}
-						else if (playerMove == "4"){
-							yourMove = player2Attacks[3].move2;
-						}
-						else {
-							alert("pick a move");
-							whoAttacks = 1;
-							battleProgress();
+						switch (playerMove) {
+							case "1":
+								yourMove = player2Attacks[0].move2;
+								break;
+							case "2":
+								yourMove = player2Attacks[1].move2;
+								break;
+							case "3":
+								yourMove = player2Attacks[2].move2;
+								break;
+							case "4":
+								yourMove = player2Attacks[3].move2;
+								break;
+							default:
+								alert("Please pick a move");
+								whoAttacks = 1;//to prevent it going to monster attack if you don't select correct number
+								battleProgress();
+								break;
 						}		
 					}
 					playerAttackMove();
@@ -585,23 +593,25 @@ function battleProgress(){ //called after match begins
 					}
 					else if (playerChoiceFlag == 1){
 						playerMove = prompt("Select a move: \nSpear = 1, Upper Cut = 2, Horse Charge = 3, Paladin Strike = 4","move");
-						if (playerMove == "1"){
-							yourMove = player3Attacks[0].move3;
-						}
-						else if (playerMove == "2"){
-							yourMove = player3Attacks[1].move3;
-						}
-						else if (playerMove == "3"){
-							yourMove = player3Attacks[2].move3;
-						}
-						else if (playerMove == "4"){
-							yourMove = player3Attacks[3].move3;
-						}
-						else {
-							alert("pick a move");
-							whoAttacks = 1;
-							battleProgress();
-						}		
+						switch (playerMove) {
+							case "1":
+								yourMove = player3Attacks[0].move3;
+								break;
+							case "2":
+								yourMove = player3Attacks[1].move3;
+								break;
+							case "3":
+								yourMove = player3Attacks[2].move3;
+								break;
+							case "4":
+								yourMove = player3Attacks[3].move3;
+								break;
+							default:
+								alert("Please pick a move");
+								whoAttacks = 1;//to prevent it going to monster attack if you don't select correct number
+								battleProgress();
+								break;
+						}	
 					}
 					playerAttackMove();
 					break;
@@ -611,23 +621,25 @@ function battleProgress(){ //called after match begins
 					}
 					else if (playerChoiceFlag == 1){
 						playerMove = prompt("Select a move: \nQuick Stab = 1, Choke = 2, Morning Star = 3, Blow Dart = 4","move");
-						if (playerMove == "1"){
-							yourMove = player4Attacks[0].move4;
-						}
-						else if (playerMove == "2"){
-							yourMove = player4Attacks[1].move4;
-						}
-						else if (playerMove == "3"){
-							yourMove = player4Attacks[2].move4;
-						}
-						else if (playerMove == "4"){
-							yourMove = player4Attacks[3].move4;
-						}
-						else {
-							alert("pick a move");
-							whoAttacks = 1;
-							battleProgress();
-						}		
+						switch (playerMove) {
+							case "1":
+								yourMove = player4Attacks[0].move4;
+								break;
+							case "2":
+								yourMove = player4Attacks[1].move4;
+								break;
+							case "3":
+								yourMove = player4Attacks[2].move4;
+								break;
+							case "4":
+								yourMove = player4Attacks[3].move4;
+								break;
+							default:
+								alert("Please pick a move");
+								whoAttacks = 1;//to prevent it going to monster attack if you don't select correct number
+								battleProgress();
+								break;
+						}	
 					}
 					playerAttackMove();
 					break;
@@ -637,23 +649,25 @@ function battleProgress(){ //called after match begins
 					}
 					else if (playerChoiceFlag == 1){
 						playerMove = prompt("Select a move: \nWhip = 1, Short Stab = 2, Poison Dart = 3, Sling Throw = 4","move");
-						if (playerMove == "1"){
-							yourMove = player5Attacks[0].move5;
-						}
-						else if (playerMove == "2"){
-							yourMove = player5Attacks[1].move5;
-						}
-						else if (playerMove == "3"){
-							yourMove = player5Attacks[2].move5;
-						}
-						else if (playerMove == "4"){
-							yourMove = player5Attacks[3].move5;
-						}
-						else {
-							alert("pick a move");
-							whoAttacks = 1;
-							battleProgress();
-						}		
+						switch (playerMove) {
+							case "1":
+								yourMove = player5Attacks[0].move5;
+								break;
+							case "2":
+								yourMove = player5Attacks[1].move5;
+								break;
+							case "3":
+								yourMove = player5Attacks[2].move5;
+								break;
+							case "4":
+								yourMove = player5Attacks[3].move5;
+								break;
+							default:
+								alert("Please pick a move");
+								whoAttacks = 1;//to prevent it going to monster attack if you don't select correct number
+								battleProgress();
+								break;
+						}	
 					}
 					playerAttackMove();
 					break;
@@ -663,23 +677,25 @@ function battleProgress(){ //called after match begins
 					}
 					else if (playerChoiceFlag == 1){
 						playerMove = prompt("Select a move: \nHoly Prayer = 1, Spell of Atonement = 2, Holy Fire = 3, Words of Peace = 4","move");
-						if (playerMove == "1"){
-							yourMove = player6Attacks[0].move6;
-						}
-						else if (playerMove == "2"){
-							yourMove = player6Attacks[1].move6;
-						}
-						else if (playerMove == "3"){
-							yourMove = player6Attacks[2].move6;
-						}
-						else if (playerMove == "4"){
-							yourMove = player6Attacks[3].move6;
-						}
-						else {
-							alert("pick a move");
-							whoAttacks = 1;
-							battleProgress();
-						}		
+						switch (playerMove) {
+							case "1":
+								yourMove = player6Attacks[0].move6;
+								break;
+							case "2":
+								yourMove = player6Attacks[1].move6;
+								break;
+							case "3":
+								yourMove = player6Attacks[2].move6;
+								break;
+							case "4":
+								yourMove = player6Attacks[3].move6;
+								break;
+							default:
+								alert("Please pick a move");
+								whoAttacks = 1;//to prevent it going to monster attack if you don't select correct number
+								battleProgress();
+								break;
+						}	
 					}
 					playerAttackMove();
 					break;
@@ -826,7 +842,7 @@ function beginFight(){
 	var enemyStrikeFirstFlag = Math.floor(Math.random() * 2);
 	var successfulEscape = Math.floor(Math.random() * 2);
 	alert("A "+monsterRating+" "+monsterTypes[monsterID].type+ " appears! \n"+gender+" has "+monsterHealth+" HP.");
-	while (newMatch == true){		
+	if (newMatch == true){		
 		if (firstBlow == 1){
 			var move = prompt("You have the element of surprise! Do you strike first or retreat?","strike = 1, retreat = 2");
 			if (move == "1"){
@@ -863,7 +879,7 @@ function beginFight(){
 	}
 }
 function endFight(){
-	while (newMatch == false){
+	if (newMatch == false){
 		//alert("Your remaining health: "+playerHealth);
 		var choice = prompt("Do you want to start the match over with a new character and scenario?","Yes = 1, No = 2");
 		if (choice == "1"){

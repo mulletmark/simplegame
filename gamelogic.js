@@ -57,50 +57,51 @@ function startGame(){
 	alert("Your name is "+player+" and your starting health is: "+playerHealth+" \nand your armor strength is: "+playerArmorStrength);
 	while (classFlag == 0){
 		playerClass = prompt("Please choose your character class:","Wizard = 1, Knight = 2, Paladin = 3, Rogue = 4, Thief = 5, Cleric = 6");
-	
-		if (playerClass == 1){
-			className = "Wizard"; 
-			abilityName = "Spellcasting";
-			abilityResult = "adds 2 hit points to your armor!";
-			playerHealth += 10;//health goes up 10 points
-			classFlag = 1;
-		}
-		else if (playerClass == 2){
-			className = "Knight"; 
-			abilityName = "Strong Swing";
-			abilityResult = "adds 5 hit points to your attack!";
-			playerArmorStrength += 10;//armor goes up 10 points
-			classFlag = 1;
-		}
-		else if (playerClass == 3){
-			className = "Paladin"; 
-			abilityName = "Swift Stab";
-			abilityResult = "adds 3 hit points to your attack!";
-			playerArmorStrength += 5;//armor goes up 5 points
-			classFlag = 1;
-		}
-		else if (playerClass == 4){
-			className = "Rogue"; 
-			abilityName = "Health Steal";
-			abilityResult = "steals 5 health points from monster!";
-			classFlag = 1;
-		}
-		else if (playerClass == 5){
-			className = "Thief"; 
-			abilityName = "Stealth Attack";
-			abilityResult = "reduced monster health by 2 health points!";
-			playerHealth += 5;//health goes up 5 points
-			classFlag = 1;
-		}
-		else if (playerClass == 6){
-			className = "Cleric"; 
-			abilityName = "Quick Heal";
-			abilityResult = "adds 5 health points to your overall health!";
-			classFlag = 1;
-		}
-		else {
-			alert("Please pick one of the options listed");
-			classFlag = 0;
+		switch (playerClass) {
+			case "1":
+				className = "Wizard"; 
+				abilityName = "Spellcasting";
+				abilityResult = "adds 2 hit points to your armor!";
+				playerHealth += 10;//health goes up 10 points
+				classFlag = 1;
+				break;		
+			case "2":
+				className = "Knight"; 
+				abilityName = "Strong Swing";
+				abilityResult = "adds 5 hit points to your attack!";
+				playerArmorStrength += 10;//armor goes up 10 points
+				classFlag = 1;
+				break;
+			case "3":
+				className = "Paladin"; 
+				abilityName = "Swift Stab";
+				abilityResult = "adds 3 hit points to your attack!";
+				playerArmorStrength += 5;//armor goes up 5 points
+				classFlag = 1;
+				break;
+			case "4":
+				className = "Rogue"; 
+				abilityName = "Health Steal";
+				abilityResult = "steals 5 health points from monster!";
+				classFlag = 1;
+				break;
+			case "5":
+				className = "Thief"; 
+				abilityName = "Stealth Attack";
+				abilityResult = "reduced monster health by 2 health points!";
+				playerHealth += 5;//health goes up 5 points
+				classFlag = 1;
+				break;
+			case "6":
+				className = "Cleric"; 
+				abilityName = "Quick Heal";
+				abilityResult = "adds 5 health points to your overall health!";
+				classFlag = 1;
+				break;
+			default:
+				alert("Please pick one of the options listed");
+				classFlag = 0;
+				break;
 		}
 	}
 	//$("#GameText").html("You have chosen the class: "+className+" \nwith the ability of: "+abilityName);
@@ -433,37 +434,41 @@ function randomMonster(){ //called before match
 	callEighthAttack();
 	
 	//monster attacks
-	if (monsterTypes[monsterID].type == "Troll"){
-		monsterMove = firstAttacks[firstAttackID].firstAttack;
-		gender = "He";
-	}
-	else if (monsterTypes[monsterID].type == "Goblin"){
-		monsterMove = secondAttacks[secondAttackID].secondAttack;
-		gender = "He";
-	}
-	else if (monsterTypes[monsterID].type == "Witch"){
-		monsterMove = thirdAttacks[thirdAttackID].thirdAttack;
-		gender = "She";
-	}
-	else if (monsterTypes[monsterID].type == "Snake King"){
-		monsterMove = fourthAttacks[fourthAttackID].fourthAttack;
-		gender = "He";
-	}
-	else if (monsterTypes[monsterID].type == "Eye Ball"){
-		monsterMove = fifthAttacks[fifthAttackID].fifthAttack;
-		gender = "It";
-	}
-	else if (monsterTypes[monsterID].type == "Cyclops"){
-		monsterMove = sixthAttacks[sixthAttackID].sixthAttack;
-		gender = "He";
-	}
-	else if (monsterTypes[monsterID].type == "Zombie"){
-		monsterMove = seventhAttacks[seventhAttackID].seventhAttack;
-		gender = "It";
-	}
-	else if (monsterTypes[monsterID].type == "Dragon"){
-		monsterMove = eighthAttacks[eighthAttackID].eighthAttack;
-		gender = "It";
+	switch (monsterTypes[monsterID].type) {
+		case "Troll":
+			monsterMove = firstAttacks[firstAttackID].firstAttack;
+			gender = "He";
+			break;
+		case "Goblin":
+			monsterMove = secondAttacks[secondAttackID].secondAttack;
+			gender = "He";
+			break;
+		case "Witch":
+			monsterMove = thirdAttacks[thirdAttackID].thirdAttack;
+			gender = "She";
+			break;
+		case "Snake King":
+			monsterMove = fourthAttacks[fourthAttackID].fourthAttack;
+			gender = "He";
+			break;
+		case "Eye Ball":
+			monsterMove = fifthAttacks[fifthAttackID].fifthAttack;
+			gender = "It";
+			break;
+		case "Cyclops":
+			monsterMove = sixthAttacks[sixthAttackID].sixthAttack;
+			gender = "He";
+			break;
+		case "Zombie":
+			monsterMove = seventhAttacks[seventhAttackID].seventhAttack;
+			gender = "It";
+			break;
+		case "Dragon":
+			monsterMove = eighthAttacks[eighthAttackID].eighthAttack;
+			gender = "It";
+			break;
+		default:
+			break;
 	}
 }
 function battleProgress(){ //called after match begins

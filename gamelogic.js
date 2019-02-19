@@ -186,7 +186,7 @@ function Choices(){ //choose your moves or let the computer randomize them
 	
 	var firstAttackID;
 	callFirstAttack = function(){
-	firstAttackID = Math.floor(Math.random() * firstAttacks.length);
+		firstAttackID = Math.floor(Math.random() * firstAttacks.length);
 	};
 	
 	//second monster attack - Goblin
@@ -204,7 +204,7 @@ function Choices(){ //choose your moves or let the computer randomize them
 	
 	var secondAttackID;
 	callSecondAttack = function(){
-	secondAttackID = Math.floor(Math.random() * secondAttacks.length);
+		secondAttackID = Math.floor(Math.random() * secondAttacks.length);
 	};
 		
 	//third monster attack - Witch
@@ -222,7 +222,7 @@ function Choices(){ //choose your moves or let the computer randomize them
 	
 	var thirdAttackID;
 	callThirdAttack = function(){
-	thirdAttackID = Math.floor(Math.random() * thirdAttacks.length);
+		thirdAttackID = Math.floor(Math.random() * thirdAttacks.length);
 	};
 		
 	//fourth monster attack - Snake King
@@ -240,7 +240,7 @@ function Choices(){ //choose your moves or let the computer randomize them
 	
 	var fourthAttackID;
 	callFourthAttack = function(){
-	fourthAttackID = Math.floor(Math.random() * fourthAttacks.length);
+		fourthAttackID = Math.floor(Math.random() * fourthAttacks.length);
 	};
 	
 	//fifth monster attack - Eye Ball
@@ -258,7 +258,7 @@ function Choices(){ //choose your moves or let the computer randomize them
 	
 	var fifthAttackID;
 	callFifthAttack = function(){
-	fifthAttackID = Math.floor(Math.random() * fifthAttacks.length);
+		fifthAttackID = Math.floor(Math.random() * fifthAttacks.length);
 	};
 	
 	//sixth monster attack - Cyclops
@@ -276,7 +276,7 @@ function Choices(){ //choose your moves or let the computer randomize them
 	
 	var sixthAttackID;
 	callSixthAttack = function(){
-	sixthAttackID = Math.floor(Math.random() * sixthAttacks.length);
+		sixthAttackID = Math.floor(Math.random() * sixthAttacks.length);
 	};
 		
 	//seventh monster attack - Zombie
@@ -294,7 +294,7 @@ function Choices(){ //choose your moves or let the computer randomize them
 	
 	var seventhAttackID;
 	callSeventhAttack = function(){
-	seventhAttackID = Math.floor(Math.random() * seventhAttacks.length);
+		seventhAttackID = Math.floor(Math.random() * seventhAttacks.length);
 	};
 	
 	//eighth monster attack - Dragon
@@ -312,7 +312,7 @@ function Choices(){ //choose your moves or let the computer randomize them
 	
 	var eighthAttackID;
 	callEighthAttack = function(){
-	eighthAttackID = Math.floor(Math.random() * eighthAttacks.length);
+		eighthAttackID = Math.floor(Math.random() * eighthAttacks.length);
 	};
 	
 	//--player damage random--//
@@ -333,7 +333,7 @@ function Choices(){ //choose your moves or let the computer randomize them
 	
 	var player1ID;
 	callPlayer1Attack = function(){
-	player1ID = Math.floor(Math.random() * player1Attacks.length);
+		player1ID = Math.floor(Math.random() * player1Attacks.length);
 	};
 	
 	//Knight
@@ -350,7 +350,7 @@ function Choices(){ //choose your moves or let the computer randomize them
 	
 	var player2ID;
 	callPlayer2Attack = function(){
-	player2ID = Math.floor(Math.random() * player2Attacks.length);
+		player2ID = Math.floor(Math.random() * player2Attacks.length);
 	};
 	
 	//Paladin
@@ -367,7 +367,7 @@ function Choices(){ //choose your moves or let the computer randomize them
 	
 	var player3ID;
 	callPlayer3Attack = function(){
-	player3ID = Math.floor(Math.random() * player3Attacks.length);
+		player3ID = Math.floor(Math.random() * player3Attacks.length);
 	};
 	
 	//Rogue
@@ -384,7 +384,7 @@ function Choices(){ //choose your moves or let the computer randomize them
 	
 	var player4ID;
 	callPlayer4Attack = function(){
-	player4ID = Math.floor(Math.random() * player4Attacks.length);
+		player4ID = Math.floor(Math.random() * player4Attacks.length);
 	};
 	
 	//Thief
@@ -401,7 +401,7 @@ function Choices(){ //choose your moves or let the computer randomize them
 	
 	var player5ID;
 	callPlayer5Attack = function(){
-	player5ID = Math.floor(Math.random() * player5Attacks.length);
+		player5ID = Math.floor(Math.random() * player5Attacks.length);
 	};
 	
 	//Cleric
@@ -418,7 +418,7 @@ function Choices(){ //choose your moves or let the computer randomize them
 	
 	var player6ID;
 	callPlayer6Attack = function(){
-	player6ID = Math.floor(Math.random() * player6Attacks.length);
+		player6ID = Math.floor(Math.random() * player6Attacks.length);
 	};	
 	
 function randomMonster(){ //called before match

@@ -847,7 +847,7 @@ function beginFight(){
 	startGame();//begin adventure needs this function
 	Choices();//begin adventure needs this function
 	randomMonster();
-	var firstBlow = Math.floor(Math.random() * 3); //0 or 1
+	var firstBlow = Math.floor(Math.random() * 5); //1 in 5 chance
 	var enemyStrikeFirstFlag = Math.floor(Math.random() * 2);
 	var successfulEscape = Math.floor(Math.random() * 2);
 	alert("A "+monsterRating+" "+monsterTypes[monsterID].type+ " appears! \n"+gender+" has "+monsterHealth+" HP.");
@@ -874,7 +874,7 @@ function beginFight(){
 				alert("Please select either option '1' or '2'.");
 			}
 		}
-		else if (firstBlow == 0){
+		else {
 			if (enemyStrikeFirstFlag == 1){//enemy attack first
 				alert("Monster has the first strike on you!");
 				monsterAttackMove();

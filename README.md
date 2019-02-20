@@ -1,5 +1,5 @@
 # simplegame
-A simple rpg style game using javascript alerts.
+A simple rpg style game using javascript.
 
 Enter your name and choose a class (each class will have a special skill):
 

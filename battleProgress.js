@@ -1,18 +1,6 @@
 function battleProgress(){ //called after match begins
-	callFirstAttack();//randomize monster moves and damage 
-	callSecondAttack();
-	callThirdAttack();
-	callFourthAttack();
-	callFifthAttack();
-	callSixthAttack();
-	callSeventhAttack();
-	callEighthAttack();
-	callPlayer1Attack();//randomize player moves
-	callPlayer2Attack();
-	callPlayer3Attack();
-	callPlayer4Attack();
-	callPlayer5Attack();
-	callPlayer6Attack();
+	callAttack(number);//randomize monster moves and damage
+	callPlayerAttack(playerNumber);//randomize player moves
 	
 	//randomize damage 
 	damage = Math.floor((Math.random() * 10) + 1);
@@ -24,35 +12,35 @@ function battleProgress(){ //called after match begins
 			whoAttacks = Math.floor(Math.random() * 2);
 			switch (monsterTypes[monsterID].type) {
 				case "Troll":
-					monsterMove = firstAttacks[firstAttackID].firstAttack;
+					monsterMove = firstAttacks[attackID].firstAttack;
 					monsterAttackMove();
 					break;
 				case "Goblin":
-					monsterMove = secondAttacks[secondAttackID].secondAttack;
+					monsterMove = secondAttacks[attackID].secondAttack;
 					monsterAttackMove();
 					break;
 				case "Witch":
-					monsterMove = thirdAttacks[thirdAttackID].thirdAttack;
+					monsterMove = thirdAttacks[attackID].thirdAttack;
 					monsterAttackMove();
 					break;
 				case "Snake King":
-					monsterMove = fourthAttacks[fourthAttackID].fourthAttack;
+					monsterMove = fourthAttacks[attackID].fourthAttack;
 					monsterAttackMove();
 					break;
 				case "Eye Ball":
-					monsterMove = fifthAttacks[fifthAttackID].fifthAttack;
+					monsterMove = fifthAttacks[attackID].fifthAttack;
 					monsterAttackMove();
 					break;
 				case "Cyclops":
-					monsterMove = sixthAttacks[sixthAttackID].sixthAttack;
+					monsterMove = sixthAttacks[attackID].sixthAttack;
 					monsterAttackMove();
 					break;
 				case "Zombie":
-					monsterMove = seventhAttacks[seventhAttackID].seventhAttack;
+					monsterMove = seventhAttacks[attackID].seventhAttack;
 					monsterAttackMove();
 					break;
 				case "Dragon":
-					monsterMove = eighthAttacks[eighthAttackID].eighthAttack;
+					monsterMove = eighthAttacks[attackID].eighthAttack;
 					monsterAttackMove();
 					break;
 				default:
@@ -65,7 +53,7 @@ function battleProgress(){ //called after match begins
 			switch (playerClass){
 				case "1": //Wizard
 					if (playerChoiceFlag == 0){
-						yourMove = player1Attacks[player1ID].move1;
+						yourMove = player1Attacks[playerAttackID].move1;
 					}
 					else if (playerChoiceFlag == 1){
 						playerMove = prompt("Select a move: \nFreeze Spell = 1, Fire Spell = 2, Wind Spell = 3, Rock Spell = 4","move");
@@ -93,7 +81,7 @@ function battleProgress(){ //called after match begins
 					break;
 				case "2": //Knight
 					if (playerChoiceFlag == 0){
-						yourMove = player2Attacks[player2ID].move2;
+						yourMove = player2Attacks[playerAttackID].move2;
 					}
 					else if (playerChoiceFlag == 1){
 						playerMove = prompt("Select a move: \nSlash = 1, Stab = 2, Cut = 3, Evicerate = 4","move");
@@ -121,7 +109,7 @@ function battleProgress(){ //called after match begins
 					break;
 				case "3": //Paladin
 					if (playerChoiceFlag == 0){
-						yourMove = player3Attacks[player3ID].move3;
+						yourMove = player3Attacks[playerAttackID].move3;
 					}
 					else if (playerChoiceFlag == 1){
 						playerMove = prompt("Select a move: \nSpear = 1, Upper Cut = 2, Horse Charge = 3, Paladin Strike = 4","move");
@@ -149,7 +137,7 @@ function battleProgress(){ //called after match begins
 					break;
 				case "4": //Rogue
 					if (playerChoiceFlag == 0){
-						yourMove = player4Attacks[player4ID].move4;
+						yourMove = player4Attacks[playerAttackID].move4;
 					}
 					else if (playerChoiceFlag == 1){
 						playerMove = prompt("Select a move: \nQuick Stab = 1, Choke = 2, Morning Star = 3, Blow Dart = 4","move");
@@ -177,7 +165,7 @@ function battleProgress(){ //called after match begins
 					break;
 				case "5": //Thief
 					if (playerChoiceFlag == 0){
-						yourMove = player5Attacks[player5ID].move5;
+						yourMove = player5Attacks[playerAttackID].move5;
 					}
 					else if (playerChoiceFlag == 1){
 						playerMove = prompt("Select a move: \nWhip = 1, Short Stab = 2, Poison Dart = 3, Sling Throw = 4","move");
@@ -205,7 +193,7 @@ function battleProgress(){ //called after match begins
 					break;
 				case "6": //Cleric
 					if (playerChoiceFlag == 0){
-						yourMove = player6Attacks[player6ID].move6;
+						yourMove = player6Attacks[playerAttackID].move6;
 					}
 					else if (playerChoiceFlag == 1){
 						playerMove = prompt("Select a move: \nHoly Prayer = 1, Spell of Atonement = 2, Holy Fire = 3, Words of Peace = 4","move");

@@ -16,7 +16,8 @@ monsterTypes[7] = new newMonster("Dragon");
 
 var monsterID;
 callWildMonster = function(){
-monsterID = Math.floor(Math.random() * monsterTypes.length);
+	monsterID = Math.floor(Math.random() * monsterTypes.length);
+	number = monsterID + 1;
 };
 
 //--Monster's Health--//
@@ -54,11 +55,6 @@ firstAttacks[1] = new firstAttack("Punch",damage);
 firstAttacks[2] = new firstAttack("Rock Toss",damage);
 firstAttacks[3] = new firstAttack("Charge",damage);
 
-var firstAttackID;
-callFirstAttack = function(){
-	firstAttackID = Math.floor(Math.random() * firstAttacks.length);
-};
-
 //second monster attack - Goblin
 
 function secondAttack (secondAttack, damage){
@@ -71,11 +67,6 @@ secondAttacks[0] = new secondAttack("Slash",damage);
 secondAttacks[1] = new secondAttack("Bash",damage);
 secondAttacks[2] = new secondAttack("Bite",damage);
 secondAttacks[3] = new secondAttack("Whip",damage);
-
-var secondAttackID;
-callSecondAttack = function(){
-	secondAttackID = Math.floor(Math.random() * secondAttacks.length);
-};
 	
 //third monster attack - Witch
 
@@ -89,11 +80,6 @@ thirdAttacks[0] = new thirdAttack("Poison",damage);
 thirdAttacks[1] = new thirdAttack("Curse Spell",damage);
 thirdAttacks[2] = new thirdAttack("Whirlwind",damage);
 thirdAttacks[3] = new thirdAttack("Fire Stone",damage);
-
-var thirdAttackID;
-callThirdAttack = function(){
-	thirdAttackID = Math.floor(Math.random() * thirdAttacks.length);
-};
 	
 //fourth monster attack - Snake King
 
@@ -108,11 +94,6 @@ fourthAttacks[1] = new fourthAttack("Poison Spit",damage);
 fourthAttacks[2] = new fourthAttack("Choke of Death",damage);
 fourthAttacks[3] = new fourthAttack("Paralyzing Gaze",damage);
 
-var fourthAttackID;
-callFourthAttack = function(){
-	fourthAttackID = Math.floor(Math.random() * fourthAttacks.length);
-};
-
 //fifth monster attack - Eye Ball
 
 function fifthAttack (fifthAttack, damage){
@@ -125,11 +106,6 @@ fifthAttacks[0] = new fifthAttack("Tears of Sorrow",damage);
 fifthAttacks[1] = new fifthAttack("Slime Spit",damage);
 fifthAttacks[2] = new fifthAttack("Ball Spin",damage);
 fifthAttacks[3] = new fifthAttack("Spell of Stone",damage);
-
-var fifthAttackID;
-callFifthAttack = function(){
-	fifthAttackID = Math.floor(Math.random() * fifthAttacks.length);
-};
 
 //sixth monster attack - Cyclops
 
@@ -144,11 +120,6 @@ sixthAttacks[1] = new sixthAttack("Club Smash",damage);
 sixthAttacks[2] = new sixthAttack("Stomp",damage);
 sixthAttacks[3] = new sixthAttack("Stone Throw",damage);
 
-var sixthAttackID;
-callSixthAttack = function(){
-	sixthAttackID = Math.floor(Math.random() * sixthAttacks.length);
-};
-	
 //seventh monster attack - Zombie
 
 function seventhAttack (seventhAttack, damage){
@@ -161,11 +132,6 @@ seventhAttacks[0] = new seventhAttack("Infected Bite",damage);
 seventhAttacks[1] = new seventhAttack("Slash",damage);
 seventhAttacks[2] = new seventhAttack("Charge Attack",damage);
 seventhAttacks[3] = new seventhAttack("Limb Throw",damage);
-
-var seventhAttackID;
-callSeventhAttack = function(){
-	seventhAttackID = Math.floor(Math.random() * seventhAttacks.length);
-};
 
 //eighth monster attack - Dragon
 
@@ -180,9 +146,36 @@ eighthAttacks[1] = new eighthAttack("Earth Shake",damage);
 eighthAttacks[2] = new eighthAttack("Hurricane Wind",damage);
 eighthAttacks[3] = new eighthAttack("Paralyzing Roar",damage);
 
-var eighthAttackID;
-callEighthAttack = function(){
-	eighthAttackID = Math.floor(Math.random() * eighthAttacks.length);
+var attackID;
+var attackArray;
+callAttack = function(number){
+	switch (number) {
+		case 1:
+			attackArray = firstAttacks;
+			break;
+		case 2:
+			attackArray = secondAttacks;
+			break;
+		case 3:
+			attackArray = thirdAttacks;
+			break;
+		case 4:
+			attackArray = fourthAttacks;
+			break;
+		case 5:
+			attackArray = fifthAttacks;
+			break;
+		case 6:
+			attackArray = sixthAttacks;
+			break;
+		case 7:
+			attackArray = seventhAttacks;
+			break;
+		case 8:
+			attackArray = eighthAttacks;
+			break;
+	}
+	attackID = Math.floor(Math.random() * attackArray.length);
 };
 
 //--player damage random--//
@@ -201,11 +194,6 @@ player1Attacks[1] = new move1("Fire Spell",playerDamage);
 player1Attacks[2] = new move1("Wind Spell",playerDamage);
 player1Attacks[3] = new move1("Rock Spell",playerDamage);
 
-var player1ID;
-callPlayer1Attack = function(){
-	player1ID = Math.floor(Math.random() * player1Attacks.length);
-};
-
 //Knight
 
 function move2 (move2, playerDamage) {
@@ -217,11 +205,6 @@ player2Attacks[0] = new move2("Slash",playerDamage);
 player2Attacks[1] = new move2("Stab",playerDamage);
 player2Attacks[2] = new move2("Cut",playerDamage);
 player2Attacks[3] = new move2("Evicerate",playerDamage);
-
-var player2ID;
-callPlayer2Attack = function(){
-	player2ID = Math.floor(Math.random() * player2Attacks.length);
-};
 
 //Paladin
 
@@ -235,11 +218,6 @@ player3Attacks[1] = new move3("Upper Cut",playerDamage);
 player3Attacks[2] = new move3("Horse Charge",playerDamage);
 player3Attacks[3] = new move3("Paladin Strike",playerDamage);
 
-var player3ID;
-callPlayer3Attack = function(){
-	player3ID = Math.floor(Math.random() * player3Attacks.length);
-};
-
 //Rogue
 
 function move4 (move4, playerDamage) {
@@ -251,11 +229,6 @@ player4Attacks[0] = new move4("Quick Stab",playerDamage);
 player4Attacks[1] = new move4("Choke",playerDamage);
 player4Attacks[2] = new move4("Morning Star",playerDamage);
 player4Attacks[3] = new move4("Blow Dart",playerDamage);
-
-var player4ID;
-callPlayer4Attack = function(){
-	player4ID = Math.floor(Math.random() * player4Attacks.length);
-};
 
 //Thief
 
@@ -269,11 +242,6 @@ player5Attacks[1] = new move5("Short Stab",playerDamage);
 player5Attacks[2] = new move5("Poison Dart",playerDamage);
 player5Attacks[3] = new move5("Sling Throw",playerDamage);
 
-var player5ID;
-callPlayer5Attack = function(){
-	player5ID = Math.floor(Math.random() * player5Attacks.length);
-};
-
 //Cleric
 
 function move6 (move6, playerDamage) {
@@ -286,55 +254,69 @@ player6Attacks[1] = new move6("Spell of Atonement",playerDamage);
 player6Attacks[2] = new move6("Holy Fire",playerDamage);
 player6Attacks[3] = new move6("Words of Peace",playerDamage);
 
-var player6ID;
-callPlayer6Attack = function(){
-	player6ID = Math.floor(Math.random() * player6Attacks.length);
-};	
+var playerAttackID;
+var playerAttackArray;
+callPlayerAttack = function(playerNumber){
+	switch (playerNumber) {
+		case 1:
+			playerAttackArray = player1Attacks;
+			break;
+		case 2:
+			playerAttackArray = player2Attacks;
+			break;
+		case 3:
+			playerAttackArray = player3Attacks;
+			break;
+		case 4:
+			playerAttackArray = player4Attacks;
+			break;
+		case 5:
+			playerAttackArray = player5Attacks;
+			break;
+		case 6:
+			playerAttackArray = player6Attacks;
+			break;
+	}
+	playerAttackID = Math.floor(Math.random() * playerAttackArray.length);
+};
 	
 function randomMonster(){ //called before match
 	callWildMonster(); //call monster type
 	callMonsterHealth(); //call monster health
-	callFirstAttack(); //call monster attacks
-	callSecondAttack();
-	callThirdAttack();
-	callFourthAttack();
-	callFifthAttack();
-	callSixthAttack();
-	callSeventhAttack();
-	callEighthAttack();
+	callAttack(number); //call monster attacks
 	
 	//monster attacks
 	switch (monsterTypes[monsterID].type) {
 		case "Troll":
-			monsterMove = firstAttacks[firstAttackID].firstAttack;
+			monsterMove = firstAttacks[attackID].firstAttack;
 			gender = "He";
 			break;
 		case "Goblin":
-			monsterMove = secondAttacks[secondAttackID].secondAttack;
+			monsterMove = secondAttacks[attackID].secondAttack;
 			gender = "He";
 			break;
 		case "Witch":
-			monsterMove = thirdAttacks[thirdAttackID].thirdAttack;
+			monsterMove = thirdAttacks[attackID].thirdAttack;
 			gender = "She";
 			break;
 		case "Snake King":
-			monsterMove = fourthAttacks[fourthAttackID].fourthAttack;
+			monsterMove = fourthAttacks[attackID].fourthAttack;
 			gender = "He";
 			break;
 		case "Eye Ball":
-			monsterMove = fifthAttacks[fifthAttackID].fifthAttack;
+			monsterMove = fifthAttacks[attackID].fifthAttack;
 			gender = "It";
 			break;
 		case "Cyclops":
-			monsterMove = sixthAttacks[sixthAttackID].sixthAttack;
+			monsterMove = sixthAttacks[attackID].sixthAttack;
 			gender = "He";
 			break;
 		case "Zombie":
-			monsterMove = seventhAttacks[seventhAttackID].seventhAttack;
+			monsterMove = seventhAttacks[attackID].seventhAttack;
 			gender = "It";
 			break;
 		case "Dragon":
-			monsterMove = eighthAttacks[eighthAttackID].eighthAttack;
+			monsterMove = eighthAttacks[attackID].eighthAttack;
 			gender = "It";
 			break;
 		default:

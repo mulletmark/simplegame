@@ -22,7 +22,17 @@ function start() {
 	beginFight();
 }
 function playerName(){
-	player = prompt("Please type the name of your player.","Your Name");
+	if (typeof(Storage) !== "undefined") {
+		if(localStorage.getItem("gamename")){
+			player = localStorage.getItem("gamename");	
+		}
+		else {
+			player = prompt("Please type the name of your player.","Your Name");
+		}		
+	} else {
+		//document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+		alert("Sorry, your browser does not support Web Storage...");
+	}	
 	var someErr = 0;
 	while (true) {
 		if (player == "Your Name" || player == ""){
@@ -44,6 +54,7 @@ function playerName(){
 			playerName();
 		}
 		else {
+			localStorage.setItem("gamename", player);
 			return true;
 		}
 	}
@@ -890,18 +901,20 @@ function beginFight(){
 function endFight(){
 	if (newMatch == false){
 		//alert("Your remaining health: "+playerHealth);
-		var choice = prompt("Do you want to start the match over with a new character and scenario?","Yes = 1, No = 2");
+		var choice = prompt("Do you want to start the match over with a new character and scenario? Your name will remain the same if you choose 1.","Yes = 1, No = 2");
 		if (choice == "1"){
 			newMatch = true;
 			firstBlow = Math.floor(Math.random() * 3);
 			beginFight();
 		}
-		else if (choice == "2"){
-			this.form.reset();
+		else if (choice == "2"){	
+			localStorage.clear();
+			this.document.reset();
 			//document.getElementById("test").reset();
 		}
 		else {
 			alert("Please select either option '1' or '2'.");
+			endFight();
 		}
 	}
 }

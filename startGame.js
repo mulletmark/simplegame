@@ -20,9 +20,6 @@ var number;
 var playerNumber;
 var whoAttacks = Math.floor(Math.random() * 2);
 
-function start() {
-	beginFight();
-}
 function playerName(){
 	if (typeof(Storage) !== "undefined") {
 		if(localStorage.getItem("gameName")){

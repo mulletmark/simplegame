@@ -1,6 +1,4 @@
 function beginFight(){
-	startGame();//begin adventure needs this function
-	Choices();//begin adventure needs this function
 	randomMonster();
 	var firstBlow = Math.floor(Math.random() * 5); //1 in 5 chance
 	var enemyStrikeFirstFlag = Math.floor(Math.random() * 2);

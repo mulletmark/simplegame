@@ -17,6 +17,7 @@ var playerChoice;
 var playerChoiceFlag;
 var playerMove;
 var err = "";
+var EnvironmentID;
 var whoAttacks = Math.floor(Math.random() * 2);
 
 function playerName(){
@@ -126,15 +127,18 @@ function startGame(){
 	//$("#GameText").html("You have chosen the class: "+className+" \nwith the ability of: "+abilityName);
 	alert("You have chosen the class: "+className+" \nwith the ability of: "+abilityName);
 	alert(classCondition);
+	Choices();
 }
 function Choices(){ //choose your moves or let the computer randomize them
 	if (playerChoice != "1" || playerChoice != "2"){
 		playerChoice = prompt("Do you want to choose your moves or let the computer do it for you?","Choose = 1, Computer = 2");
 		if (playerChoice == "1"){
 			playerChoiceFlag = 1;
+			beginAdventure();
 		}
 		else if (playerChoice == "2"){
 			playerChoiceFlag = 0;
+			beginAdventure();
 		}
 		else {
 			alert("Please pick one of the options listed");
@@ -142,9 +146,3 @@ function Choices(){ //choose your moves or let the computer randomize them
 		}
 	}
 }
-//function beginAdventure(){
-	//this begins the quest. Choose between several different environments and scenarios in each. At random points enemies will be encountered. If they are defeated,
-	//the player continues to another scenario. The enemy encounters are random and sometimes you can travel far without meeting one. The number of scenarios you have 
-	//pass through should be random as well. Possibly have a final boss? Player health should be high so you can survive multiple encounters or you should have a health
-	//restore system. maybe after encounters you can gain new abilities or new armor.
-//}

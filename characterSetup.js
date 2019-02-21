@@ -42,137 +42,72 @@ callMonsterHealth = function(){
 
 var damage = Math.floor((Math.random() * 10) + 1); //enemy damage random
 
-//first monster attack - Troll
-
-function firstAttack (firstAttack, damage){
-	this.firstAttack = firstAttack;
+function monsterAttack (monsterAttack, damage){
+	this.monsterAttack = monsterAttack;
 	this.damage = damage;
 }
 
-var firstAttacks = new Array();
-firstAttacks[0] = new firstAttack("Slap",damage);
-firstAttacks[1] = new firstAttack("Punch",damage);
-firstAttacks[2] = new firstAttack("Rock Toss",damage);
-firstAttacks[3] = new firstAttack("Charge",damage);
-
-//second monster attack - Goblin
-
-function secondAttack (secondAttack, damage){
-	this.secondAttack = secondAttack;
-	this.damage = damage;
-}
-
-var secondAttacks = new Array();
-secondAttacks[0] = new secondAttack("Slash",damage);
-secondAttacks[1] = new secondAttack("Bash",damage);
-secondAttacks[2] = new secondAttack("Bite",damage);
-secondAttacks[3] = new secondAttack("Whip",damage);
-	
-//third monster attack - Witch
-
-function thirdAttack (thirdAttack, damage){
-	this.thirdAttack = thirdAttack;
-	this.damage = damage;
-}
-
-var thirdAttacks = new Array();
-thirdAttacks[0] = new thirdAttack("Poison",damage);
-thirdAttacks[1] = new thirdAttack("Curse Spell",damage);
-thirdAttacks[2] = new thirdAttack("Whirlwind",damage);
-thirdAttacks[3] = new thirdAttack("Fire Stone",damage);
-	
-//fourth monster attack - Snake King
-
-function fourthAttack (fourthAttack, damage){
-	this.fourthAttack = fourthAttack;
-	this.damage = damage;
-}
-
-var fourthAttacks = new Array();
-fourthAttacks[0] = new fourthAttack("Poison Bite",damage);
-fourthAttacks[1] = new fourthAttack("Poison Spit",damage);
-fourthAttacks[2] = new fourthAttack("Choke of Death",damage);
-fourthAttacks[3] = new fourthAttack("Paralyzing Gaze",damage);
-
-//fifth monster attack - Eye Ball
-
-function fifthAttack (fifthAttack, damage){
-	this.fifthAttack = fifthAttack;
-	this.damage = damage;
-}
-
-var fifthAttacks = new Array();
-fifthAttacks[0] = new fifthAttack("Tears of Sorrow",damage);
-fifthAttacks[1] = new fifthAttack("Slime Spit",damage);
-fifthAttacks[2] = new fifthAttack("Ball Spin",damage);
-fifthAttacks[3] = new fifthAttack("Spell of Stone",damage);
-
-//sixth monster attack - Cyclops
-
-function sixthAttack (sixthAttack, damage){
-	this.sixthAttack = sixthAttack;
-	this.damage = damage;
-}
-
-var sixthAttacks = new Array();
-sixthAttacks[0] = new sixthAttack("Ground Pound",damage);
-sixthAttacks[1] = new sixthAttack("Club Smash",damage);
-sixthAttacks[2] = new sixthAttack("Stomp",damage);
-sixthAttacks[3] = new sixthAttack("Stone Throw",damage);
-
-//seventh monster attack - Zombie
-
-function seventhAttack (seventhAttack, damage){
-	this.seventhAttack = seventhAttack;
-	this.damage = damage;
-}
-
-var seventhAttacks = new Array();
-seventhAttacks[0] = new seventhAttack("Infected Bite",damage);
-seventhAttacks[1] = new seventhAttack("Slash",damage);
-seventhAttacks[2] = new seventhAttack("Charge Attack",damage);
-seventhAttacks[3] = new seventhAttack("Limb Throw",damage);
-
-//eighth monster attack - Dragon
-
-function eighthAttack (eighthAttack, damage){
-	this.eighthAttack = eighthAttack;
-	this.damage = damage;
-}
-
-var eighthAttacks = new Array();
-eighthAttacks[0] = new eighthAttack("Fire Breath",damage);
-eighthAttacks[1] = new eighthAttack("Earth Shake",damage);
-eighthAttacks[2] = new eighthAttack("Hurricane Wind",damage);
-eighthAttacks[3] = new eighthAttack("Paralyzing Roar",damage);
+var monsterAttacks = new Array();
+monsterAttacks[0] = new monsterAttack("Slap",damage); //Troll
+monsterAttacks[1] = new monsterAttack("Punch",damage);
+monsterAttacks[2] = new monsterAttack("Rock Toss",damage);
+monsterAttacks[3] = new monsterAttack("Charge",damage);
+monsterAttacks[4] = new monsterAttack("Slash",damage); //Goblin
+monsterAttacks[5] = new monsterAttack("Bash",damage);
+monsterAttacks[6] = new monsterAttack("Bite",damage);
+monsterAttacks[7] = new monsterAttack("Whip",damage);
+monsterAttacks[8] = new monsterAttack("Poison",damage); //Witch
+monsterAttacks[9] = new monsterAttack("Curse Spell",damage);
+monsterAttacks[10] = new monsterAttack("Whirlwind",damage);
+monsterAttacks[11] = new monsterAttack("Fire Stone",damage);
+monsterAttacks[12] = new monsterAttack("Poison Bite",damage); //Snake King
+monsterAttacks[13] = new monsterAttack("Poison Spit",damage);
+monsterAttacks[14] = new monsterAttack("Choke of Death",damage);
+monsterAttacks[15] = new monsterAttack("Paralyzing Gaze",damage);
+monsterAttacks[16] = new monsterAttack("Tears of Sorrow",damage); //Eye Ball
+monsterAttacks[17] = new monsterAttack("Slime Spit",damage);
+monsterAttacks[18] = new monsterAttack("Ball Spin",damage);
+monsterAttacks[19] = new monsterAttack("Spell of Stone",damage);
+monsterAttacks[20] = new monsterAttack("Ground Pound",damage); //Cyclops
+monsterAttacks[21] = new monsterAttack("Club Smash",damage);
+monsterAttacks[22] = new monsterAttack("Stomp",damage);
+monsterAttacks[23] = new monsterAttack("Stone Throw",damage);
+monsterAttacks[24] = new monsterAttack("Infected Bite",damage); //Zombie
+monsterAttacks[25] = new monsterAttack("Slash",damage);
+monsterAttacks[26] = new monsterAttack("Charge Attack",damage);
+monsterAttacks[27] = new monsterAttack("Limb Throw",damage);
+monsterAttacks[28] = new monsterAttack("Fire Breath",damage); //Dragon
+monsterAttacks[29] = new monsterAttack("Earth Shake",damage);
+monsterAttacks[30] = new monsterAttack("Hurricane Wind",damage);
+monsterAttacks[31] = new monsterAttack("Paralyzing Roar",damage);
 
 var attackID;
 var attackArray;
 callAttack = function(number){
 	switch (number) {
 		case 1:
-			attackArray = firstAttacks;
+			attackArray = monsterAttacks.slice(0,4);
 			break;
 		case 2:
-			attackArray = secondAttacks;
+			attackArray = monsterAttacks.slice(4,8);
 			break;
 		case 3:
-			attackArray = thirdAttacks;
+			attackArray = monsterAttacks.slice(8,12);
 			break;
 		case 4:
-			attackArray = fourthAttacks;
+			attackArray = monsterAttacks.slice(12,16);
 			break;
 		case 5:
-			attackArray = fifthAttacks;
+			attackArray = monsterAttacks.slice(16,20);
 			break;
 		case 6:
-			attackArray = sixthAttacks;
+			attackArray = monsterAttacks.slice(20,24);
 			break;
 		case 7:
-			attackArray = seventhAttacks;
+			attackArray = monsterAttacks.slice(24,28);
 			break;
 		case 8:
-			attackArray = eighthAttacks;
+			attackArray = monsterAttacks.slice(28,32);
 			break;
 	}
 	attackID = Math.floor(Math.random() * attackArray.length);
@@ -180,101 +115,59 @@ callAttack = function(number){
 
 //--player damage random--//
 
-var playerDamage = Math.floor((Math.random() * 10) + 1); 
+var playerDamage = Math.floor((Math.random() * 10) + 1);
 
-//Wizard
-
-function move1 (move1, playerDamage) {
-	this.move1 = move1;
+function move (move, playerDamage) {
+	this.move = move;
 	this.playerDamage = playerDamage;
 }
-var player1Attacks = new Array();
-player1Attacks[0] = new move1("Freeze Spell",playerDamage);
-player1Attacks[1] = new move1("Fire Spell",playerDamage);
-player1Attacks[2] = new move1("Wind Spell",playerDamage);
-player1Attacks[3] = new move1("Rock Spell",playerDamage);
-
-//Knight
-
-function move2 (move2, playerDamage) {
-	this.move2 = move2;
-	this.playerDamage = playerDamage;
-}	
-var player2Attacks = new Array();
-player2Attacks[0] = new move2("Slash",playerDamage);
-player2Attacks[1] = new move2("Stab",playerDamage);
-player2Attacks[2] = new move2("Cut",playerDamage);
-player2Attacks[3] = new move2("Evicerate",playerDamage);
-
-//Paladin
-
-function move3 (move3, playerDamage) {
-	this.move3 = move3;
-	this.playerDamage = playerDamage;
-}
-var player3Attacks = new Array();
-player3Attacks[0] = new move3("Spear",playerDamage);
-player3Attacks[1] = new move3("Upper Cut",playerDamage);
-player3Attacks[2] = new move3("Horse Charge",playerDamage);
-player3Attacks[3] = new move3("Paladin Strike",playerDamage);
-
-//Rogue
-
-function move4 (move4, playerDamage) {
-	this.move4 = move4;
-	this.playerDamage = playerDamage;
-}
-var player4Attacks = new Array();
-player4Attacks[0] = new move4("Quick Stab",playerDamage);
-player4Attacks[1] = new move4("Choke",playerDamage);
-player4Attacks[2] = new move4("Morning Star",playerDamage);
-player4Attacks[3] = new move4("Blow Dart",playerDamage);
-
-//Thief
-
-function move5 (move5, playerDamage) {
-	this.move5 = move5;
-	this.playerDamage = playerDamage;
-}
-var player5Attacks = new Array();
-player5Attacks[0] = new move5("Whip",playerDamage);
-player5Attacks[1] = new move5("Short Stab",playerDamage);
-player5Attacks[2] = new move5("Poison Dart",playerDamage);
-player5Attacks[3] = new move5("Sling Throw",playerDamage);
-
-//Cleric
-
-function move6 (move6, playerDamage) {
-	this.move6 = move6;
-	this.playerDamage = playerDamage;
-}
-var player6Attacks = new Array();
-player6Attacks[0] = new move6("Holy Prayer",playerDamage);
-player6Attacks[1] = new move6("Spell of Atonement",playerDamage);
-player6Attacks[2] = new move6("Holy Fire",playerDamage);
-player6Attacks[3] = new move6("Words of Peace",playerDamage);
+var playerAttacks = new Array();
+playerAttacks[0] = new move("Freeze Spell",playerDamage); //Wizard
+playerAttacks[1] = new move("Fire Spell",playerDamage);
+playerAttacks[2] = new move("Wind Spell",playerDamage);
+playerAttacks[3] = new move("Rock Spell",playerDamage);
+playerAttacks[4] = new move("Slash",playerDamage); //Knight
+playerAttacks[5] = new move("Stab",playerDamage);
+playerAttacks[6] = new move("Cut",playerDamage);
+playerAttacks[7] = new move("Evicerate",playerDamage);
+playerAttacks[8] = new move("Spear",playerDamage); //Paladin
+playerAttacks[9] = new move("Upper Cut",playerDamage);
+playerAttacks[10] = new move("Horse Charge",playerDamage);
+playerAttacks[11] = new move("Paladin Strike",playerDamage);
+playerAttacks[12] = new move("Quick Stab",playerDamage); //Rogue
+playerAttacks[13] = new move("Choke",playerDamage);
+playerAttacks[14] = new move("Morning Star",playerDamage);
+playerAttacks[15] = new move("Blow Dart",playerDamage);
+playerAttacks[16] = new move("Whip",playerDamage); //Thief
+playerAttacks[17] = new move("Short Stab",playerDamage);
+playerAttacks[18] = new move("Poison Dart",playerDamage);
+playerAttacks[19] = new move("Sling Throw",playerDamage);
+playerAttacks[20] = new move("Holy Prayer",playerDamage); //Cleric
+playerAttacks[21] = new move("Spell of Atonement",playerDamage);
+playerAttacks[22] = new move("Holy Fire",playerDamage);
+playerAttacks[23] = new move("Words of Peace",playerDamage);
 
 var playerAttackID;
 var playerAttackArray;
 callPlayerAttack = function(playerNumber){
 	switch (playerNumber) {
 		case 1:
-			playerAttackArray = player1Attacks;
+			playerAttackArray = playerAttacks.slice(0,4);
 			break;
 		case 2:
-			playerAttackArray = player2Attacks;
+			playerAttackArray = playerAttacks.slice(4,8);
 			break;
 		case 3:
-			playerAttackArray = player3Attacks;
+			playerAttackArray = playerAttacks.slice(8,12);
 			break;
 		case 4:
-			playerAttackArray = player4Attacks;
+			playerAttackArray = playerAttacks.slice(12,16);
 			break;
 		case 5:
-			playerAttackArray = player5Attacks;
+			playerAttackArray = playerAttacks.slice(16,20);
 			break;
 		case 6:
-			playerAttackArray = player6Attacks;
+			playerAttackArray = playerAttacks.slice(20,24);
 			break;
 	}
 	playerAttackID = Math.floor(Math.random() * playerAttackArray.length);
@@ -288,35 +181,35 @@ function randomMonster(){ //called before match
 	//monster attacks
 	switch (monsterTypes[monsterID].type) {
 		case "Troll":
-			monsterMove = firstAttacks[attackID].firstAttack;
+			monsterMove = attackArray[attackID].monsterAttack;
 			gender = "He";
 			break;
 		case "Goblin":
-			monsterMove = secondAttacks[attackID].secondAttack;
+			monsterMove = attackArray[attackID].monsterAttack;
 			gender = "He";
 			break;
 		case "Witch":
-			monsterMove = thirdAttacks[attackID].thirdAttack;
+			monsterMove = attackArray[attackID].monsterAttack;
 			gender = "She";
 			break;
 		case "Snake King":
-			monsterMove = fourthAttacks[attackID].fourthAttack;
+			monsterMove = attackArray[attackID].monsterAttack;
 			gender = "He";
 			break;
 		case "Eye Ball":
-			monsterMove = fifthAttacks[attackID].fifthAttack;
+			monsterMove = attackArray[attackID].monsterAttack;
 			gender = "It";
 			break;
 		case "Cyclops":
-			monsterMove = sixthAttacks[attackID].sixthAttack;
+			monsterMove = attackArray[attackID].monsterAttack;
 			gender = "He";
 			break;
 		case "Zombie":
-			monsterMove = seventhAttacks[attackID].seventhAttack;
+			monsterMove = attackArray[attackID].monsterAttack;
 			gender = "It";
 			break;
 		case "Dragon":
-			monsterMove = eighthAttacks[attackID].eighthAttack;
+			monsterMove = attackArray[attackID].monsterAttack;
 			gender = "It";
 			break;
 		default:

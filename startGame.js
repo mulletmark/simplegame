@@ -2,6 +2,7 @@
 
 var playerClass;
 var className;
+var classCondition;
 var abilityName;
 var abilityResult;
 var gender;
@@ -70,42 +71,50 @@ function startGame(){
 				className = "Wizard"; 
 				abilityName = "Spellcasting";
 				abilityResult = "adds 2 hit points to your armor!";
-				playerHealth += 10;//health goes up 10 points
+				playerHealth += 10;
+				classCondition = "The Wizard's health is increased by 10 HP! Your health is now "+playerHealth+" HP";
 				classFlag = 1;
 				break;		
 			case "2":
 				className = "Knight"; 
 				abilityName = "Strong Swing";
 				abilityResult = "adds 5 hit points to your attack!";
-				playerArmorStrength += 10;//armor goes up 10 points
+				playerArmorStrength += 10;
+				classCondition = "The Knight's armor is increased by 10 HP! Your armor is now "+playerArmorStrength+" HP";
 				classFlag = 1;
 				break;
 			case "3":
 				className = "Paladin"; 
 				abilityName = "Swift Stab";
 				abilityResult = "adds 3 hit points to your attack!";
-				playerArmorStrength += 5;//armor goes up 5 points
+				playerArmorStrength += 5;
+				classCondition = "The Paladin's armor is increased by 5 HP! Your armor is now "+playerArmorStrength+" HP";
 				classFlag = 1;
 				break;
 			case "4":
 				className = "Rogue"; 
 				abilityName = "Health Steal";
 				abilityResult = "steals 5 health points from monster!";
-				playerArmorStrength -= 5;//armor goes down 5 points
+				playerArmorStrength -= 5;
+				playerArmorStrength <= 0 ? playerArmorStrength = 1 : playerArmorStrength;
+				classCondition = "The Rogue's armor is decreased by 5 HP! Your armor is now "+playerArmorStrength+" HP";
 				classFlag = 1;
 				break;
 			case "5":
 				className = "Thief"; 
 				abilityName = "Stealth Attack";
 				abilityResult = "reduced monster health by 2 health points!";
-				playerHealth += 5;//health goes up 5 points
+				playerHealth += 5;
+				classCondition = "The Thief's health is increased by 5 HP! Your health is now "+playerHealth+" HP";
 				classFlag = 1;
 				break;
 			case "6":
 				className = "Cleric"; 
 				abilityName = "Quick Heal";
 				abilityResult = "adds 5 health points to your overall health!";
-				playerHealth -= 10;//health goes down 10 points
+				playerHealth -= 10;
+				playerHealth <= 0 ? playerHealth = 1 : playerHealth;
+				classCondition = "The Cleric's health is decreased by 10 HP! Your health is now "+playerHealth+" HP";
 				classFlag = 1;
 				break;
 			default:
@@ -116,6 +125,7 @@ function startGame(){
 	}
 	//$("#GameText").html("You have chosen the class: "+className+" \nwith the ability of: "+abilityName);
 	alert("You have chosen the class: "+className+" \nwith the ability of: "+abilityName);
+	alert(classCondition);
 }
 function Choices(){ //choose your moves or let the computer randomize them
 	if (playerChoice != "1" || playerChoice != "2"){

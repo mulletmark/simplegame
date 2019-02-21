@@ -91,6 +91,7 @@ function startGame(){
 				className = "Rogue"; 
 				abilityName = "Health Steal";
 				abilityResult = "steals 5 health points from monster!";
+				playerArmorStrength -= 5;//armor goes down 5 points
 				classFlag = 1;
 				break;
 			case "5":
@@ -104,6 +105,7 @@ function startGame(){
 				className = "Cleric"; 
 				abilityName = "Quick Heal";
 				abilityResult = "adds 5 health points to your overall health!";
+				playerHealth -= 10;//health goes down 10 points
 				classFlag = 1;
 				break;
 			default:

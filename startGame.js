@@ -16,8 +16,6 @@ var playerChoice;
 var playerChoiceFlag;
 var playerMove;
 var err = "";
-var number;
-var playerNumber;
 var whoAttacks = Math.floor(Math.random() * 2);
 
 function playerName(){
@@ -74,7 +72,6 @@ function startGame(){
 				abilityResult = "adds 2 hit points to your armor!";
 				playerHealth += 10;//health goes up 10 points
 				classFlag = 1;
-				playerNumber = 1;
 				break;		
 			case "2":
 				className = "Knight"; 
@@ -82,7 +79,6 @@ function startGame(){
 				abilityResult = "adds 5 hit points to your attack!";
 				playerArmorStrength += 10;//armor goes up 10 points
 				classFlag = 1;
-				playerNumber = 2;
 				break;
 			case "3":
 				className = "Paladin"; 
@@ -90,14 +86,12 @@ function startGame(){
 				abilityResult = "adds 3 hit points to your attack!";
 				playerArmorStrength += 5;//armor goes up 5 points
 				classFlag = 1;
-				playerNumber = 3;
 				break;
 			case "4":
 				className = "Rogue"; 
 				abilityName = "Health Steal";
 				abilityResult = "steals 5 health points from monster!";
 				classFlag = 1;
-				playerNumber = 4;
 				break;
 			case "5":
 				className = "Thief"; 
@@ -105,14 +99,12 @@ function startGame(){
 				abilityResult = "reduced monster health by 2 health points!";
 				playerHealth += 5;//health goes up 5 points
 				classFlag = 1;
-				playerNumber = 5;
 				break;
 			case "6":
 				className = "Cleric"; 
 				abilityName = "Quick Heal";
 				abilityResult = "adds 5 health points to your overall health!";
 				classFlag = 1;
-				playerNumber = 6;
 				break;
 			default:
 				alert("Please pick one of the options listed");

@@ -17,7 +17,6 @@ monsterTypes[7] = new newMonster("Dragon");
 var monsterID;
 callWildMonster = function(){
 	monsterID = Math.floor(Math.random() * monsterTypes.length);
-	number = monsterID + 1;
 };
 
 //--Monster's Health--//
@@ -83,30 +82,30 @@ monsterAttacks[31] = new monsterAttack("Paralyzing Roar",damage);
 
 var attackID;
 var attackArray;
-callAttack = function(number){
-	switch (number) {
-		case 1:
+callAttack = function(){
+	switch (monsterTypes[monsterID].type) {
+		case "Troll":
 			attackArray = monsterAttacks.slice(0,4);
 			break;
-		case 2:
+		case "Goblin":
 			attackArray = monsterAttacks.slice(4,8);
 			break;
-		case 3:
+		case "Witch":
 			attackArray = monsterAttacks.slice(8,12);
 			break;
-		case 4:
+		case "Snake King":
 			attackArray = monsterAttacks.slice(12,16);
 			break;
-		case 5:
+		case "Eye Ball":
 			attackArray = monsterAttacks.slice(16,20);
 			break;
-		case 6:
+		case "Cyclops":
 			attackArray = monsterAttacks.slice(20,24);
 			break;
-		case 7:
+		case "Zombie":
 			attackArray = monsterAttacks.slice(24,28);
 			break;
-		case 8:
+		case "Dragon":
 			attackArray = monsterAttacks.slice(28,32);
 			break;
 	}
@@ -149,24 +148,24 @@ playerAttacks[23] = new move("Words of Peace",playerDamage);
 
 var playerAttackID;
 var playerAttackArray;
-callPlayerAttack = function(playerNumber){
-	switch (playerNumber) {
-		case 1:
+callPlayerAttack = function(){
+	switch (className) {
+		case "Wizard":
 			playerAttackArray = playerAttacks.slice(0,4);
 			break;
-		case 2:
+		case "Knight":
 			playerAttackArray = playerAttacks.slice(4,8);
 			break;
-		case 3:
+		case "Paladin":
 			playerAttackArray = playerAttacks.slice(8,12);
 			break;
-		case 4:
+		case "Rogue":
 			playerAttackArray = playerAttacks.slice(12,16);
 			break;
-		case 5:
+		case "Thief":
 			playerAttackArray = playerAttacks.slice(16,20);
 			break;
-		case 6:
+		case "Cleric":
 			playerAttackArray = playerAttacks.slice(20,24);
 			break;
 	}
@@ -176,7 +175,7 @@ callPlayerAttack = function(playerNumber){
 function randomMonster(){ //called before match
 	callWildMonster(); //call monster type
 	callMonsterHealth(); //call monster health
-	callAttack(number); //call monster attacks
+	callAttack(); //call monster attacks
 	
 	//monster attacks
 	switch (monsterTypes[monsterID].type) {

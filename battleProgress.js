@@ -1,6 +1,6 @@
 function battleProgress(){ //called after match begins
-	callAttack(number);//randomize monster moves and damage
-	callPlayerAttack(playerNumber);//randomize player moves
+	callAttack();//randomize monster moves and damage
+	callPlayerAttack();//randomize player moves
 	
 	//randomize damage 
 	damage = Math.floor((Math.random() * 10) + 1);

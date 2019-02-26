@@ -14,14 +14,48 @@ function beginAdventure(){
 	Environments[7] = new newEnvironment("Mushroom Gorge");
 
 	callNewEnvironment = function(){
-		EnvironmentID = Math.floor(Math.random() * Environments.length);
+		var selection;
+		var firstOne = Math.floor(Math.random() * Environments.length);
+		var secondOne = Math.floor(Math.random() * Environments.length);
+		firstOne <= secondOne ? (firstOne == secondOne ? secondOne + 1 : selectEnvironments = Environments.slice(firstOne,secondOne)) : selectEnvironments = Environments.slice(secondOne,firstOne);
+		
+		for (var i = selectEnvironments.length; i--;){ //if 1 element this loop isn't accessed
+			EnvironmentID = Math.floor(Math.random() * selectEnvironments.length);
+			var index = selectEnvironments[EnvironmentID].newEnvironment;
+			selectEnvironments.splice(EnvironmentID,1);
+			if (!leftChoice && leftChoice != index){
+				leftChoice = index;
+			}
+			else if (!rightChoice && rightChoice != index){
+				rightChoice = index;
+			}
+			else if (!upChoice && upChoice != index){
+				upChoice = index;
+			}
+			else if (!backChoice && backChoice != index){
+				backChoice = index;
+			}
+			else{
+				chooseNewEnvironment();
+			}
+		}
+		chooseNewEnvironment();
 	};
 	
 	callNewEnvironment();
-	var land = Environments[EnvironmentID].newEnvironment;
-	alert(land);
 	
-	beginFight();
+	function chooseNewEnvironment() {
+		//var choiceOfLocation = prompt("You have started your quest and reach a crossroads. Where will you go? \n","Left to "+leftChoice+" = 1,Right to "+rightChoice+"= 2, Forward to "+upChoice+"= 3, Back to "+backChoice+"= 4");
+		$("#leftChoiceBtn").text(leftChoice);
+		$("#rightChoiceBtn").text(rightChoice);
+		$("#upChoiceBtn").text(upChoice);
+		$("#downChoiceBtn").text(backChoice);
+		$("#gameChoices").show();
+	}
+	//var land = Environments[EnvironmentID].newEnvironment;
+	//alert(land);
+	
+	//beginFight();
 	
 	//this begins the quest. Choose between several different environments and scenarios in each. At random points enemies will be encountered. If they are defeated,
 	//the player continues to another scenario. The enemy encounters are random and sometimes you can travel far without meeting one. The number of scenarios you have 

@@ -18,6 +18,11 @@ var playerChoiceFlag;
 var playerMove;
 var err = "";
 var EnvironmentID;
+var selectEnvironments;
+var leftChoice;
+var rightChoice;
+var upChoice;
+var backChoice;
 var whoAttacks = Math.floor(Math.random() * 2);
 
 function playerName(){
@@ -63,8 +68,8 @@ function startGame(){
 	var classFlag = 0;
 	playerHealth = Math.floor((Math.random() * 100) + 1); //1-100
 	playerArmorStrength = Math.floor((Math.random() * 50) + 1);//1-50
-	//$("#GameText").html("Your name is "+player+" and your starting health is: "+playerHealth+" \nand your armor strength is: "+playerArmorStrength);
-	alert("Your name is "+player+" and your starting health is: "+playerHealth+" \nand your armor strength is: "+playerArmorStrength);
+	$("#playerText").html("Your name is "+player+" and your starting health is: "+playerHealth+"<br>\nand your armor strength is: "+playerArmorStrength);
+	//alert("Your name is "+player+" and your starting health is: "+playerHealth+" \nand your armor strength is: "+playerArmorStrength);
 	while (classFlag == 0){
 		playerClass = prompt("Please choose your character class:","Wizard = 1, Knight = 2, Paladin = 3, Rogue = 4, Thief = 5, Cleric = 6");
 		switch (playerClass) {
@@ -124,10 +129,15 @@ function startGame(){
 				break;
 		}
 	}
-	//$("#GameText").html("You have chosen the class: "+className+" \nwith the ability of: "+abilityName);
-	alert("You have chosen the class: "+className+" \nwith the ability of: "+abilityName);
-	alert(classCondition);
-	Choices();
+	
+	$("#classText").html("You have chosen the class: "+className+"<br> \nwith the ability of: "+abilityName);
+	$("#classCondition").html(classCondition);
+	$("#start").hide();
+	//alert("You have chosen the class: "+className+" \nwith the ability of: "+abilityName);
+	//alert(classCondition);
+	setTimeout(function (){
+		Choices();
+	}, 1000);
 }
 function Choices(){ //choose your moves or let the computer randomize them
 	if (playerChoice != "1" || playerChoice != "2"){

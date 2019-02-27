@@ -51,6 +51,7 @@ function beginAdventure(){
 		$("#upChoiceBtn").text(upChoice);
 		$("#downChoiceBtn").text(backChoice);
 		$("#gameChoices").show();
+		$("#playerChoices").hide();
 	}
 	//var land = Environments[EnvironmentID].newEnvironment;
 	//alert(land);

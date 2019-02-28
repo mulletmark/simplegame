@@ -46,10 +46,10 @@ function beginAdventure(){
 	
 	function chooseNewEnvironment() {
 		//var choiceOfLocation = prompt("You have started your quest and reach a crossroads. Where will you go? \n","Left to "+leftChoice+" = 1,Right to "+rightChoice+"= 2, Forward to "+upChoice+"= 3, Back to "+backChoice+"= 4");
-		$("#leftChoiceBtn").text(leftChoice);
-		$("#rightChoiceBtn").text(rightChoice);
-		$("#upChoiceBtn").text(upChoice);
-		$("#downChoiceBtn").text(backChoice);
+		leftChoice ? $("#leftChoiceBtn").text(leftChoice) : $("#leftChoiceBtn").hide();
+		rightChoice ? $("#rightChoiceBtn").text(rightChoice) : $("#rightChoiceBtn").hide();
+		upChoice ? $("#upChoiceBtn").text(upChoice) : $("#upChoiceBtn").hide();
+		backChoice ? $("#downChoiceBtn").text(backChoice) : $("#downChoiceBtn").hide();
 		$("#gameChoices").show();
 		$("#playerChoices").hide();
 	}

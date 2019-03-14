@@ -12,12 +12,19 @@ function beginAdventure(){
 	Environments[5] = new newEnvironment("Savannah of Longing");
 	Environments[6] = new newEnvironment("Volcanic Heights");
 	Environments[7] = new newEnvironment("Mushroom Gorge");
+	Environments[8] = new newEnvironment("Castle Mighty");
+	Environments[9] = new newEnvironment("Lake of Indecision");
+	Environments[10] = new newEnvironment("Morlack Cave");
+	Environments[11] = new newEnvironment("Misty Peaks");
+	Environments[12] = new newEnvironment("Forest of Charn");
+	Environments[13] = new newEnvironment("Arag Highway");
 
 	callNewEnvironment = function(){
 		var selection;
 		var firstOne = Math.floor(Math.random() * Environments.length);
 		var secondOne = Math.floor(Math.random() * Environments.length);
 		firstOne <= secondOne ? (firstOne == secondOne ? secondOne + 1 : selectEnvironments = Environments.slice(firstOne,secondOne)) : selectEnvironments = Environments.slice(secondOne,firstOne);
+		localStorage.setItem("selectEnvironments", JSON.stringify(selectEnvironments));
 		
 		for (var i = selectEnvironments.length; i--;){ //if 1 element this loop isn't accessed
 			EnvironmentID = Math.floor(Math.random() * selectEnvironments.length);
@@ -36,30 +43,73 @@ function beginAdventure(){
 				backChoice = index;
 			}
 			else{
-				chooseNewEnvironment();
+				chooseEnvironment();
 			}
 		}
-		chooseNewEnvironment();
+		chooseEnvironment();
 	};
 	
 	callNewEnvironment();
+}
 	
-	function chooseNewEnvironment() {
-		//var choiceOfLocation = prompt("You have started your quest and reach a crossroads. Where will you go? \n","Left to "+leftChoice+" = 1,Right to "+rightChoice+"= 2, Forward to "+upChoice+"= 3, Back to "+backChoice+"= 4");
-		leftChoice ? $("#leftChoiceBtn").text(leftChoice) : $("#leftChoiceBtn").hide();
-		rightChoice ? $("#rightChoiceBtn").text(rightChoice) : $("#rightChoiceBtn").hide();
-		upChoice ? $("#upChoiceBtn").text(upChoice) : $("#upChoiceBtn").hide();
-		backChoice ? $("#downChoiceBtn").text(backChoice) : $("#downChoiceBtn").hide();
-		$("#gameChoices").show();
-		$("#playerChoices").hide();
+function chooseNewEnvironment(surviveSection,environment) {
+	leftChoice = ""; rightChoice = ""; upChoice = ""; backChoice = "";	
+	$("#gameChoiceText").text("You have passed through the first land. Where will you go next?");
+	var arrayEnv = JSON.parse(localStorage.getItem("selectEnvironments"));
+	//remove previous choice
+	var index = arrayEnv.map(function(e) {return e.newEnvironment; }).indexOf(environment);
+	if (index !== -1) arrayEnv.splice(index, 1);
+	localStorage.setItem("selectEnvironments", JSON.stringify(arrayEnv));
+	
+	if (arrayEnv.length == 0) {
+		$("#gameChoiceText").text("You have made it to your destination. The game is over.");
+		newMatch = false;
+		endFight();
 	}
-	//var land = Environments[EnvironmentID].newEnvironment;
-	//alert(land);
+	for (var i = arrayEnv.length; i--;){
+		EnvironmentID = Math.floor(Math.random() * arrayEnv.length);
+		var index = arrayEnv[EnvironmentID].newEnvironment;
+		arrayEnv.splice(EnvironmentID,1);
+		if (!leftChoice && leftChoice != index){
+			leftChoice = index;
+		}
+		else if (!rightChoice && rightChoice != index){
+			rightChoice = index;
+		}
+		else if (!upChoice && upChoice != index){
+			upChoice = index;
+		}
+		else if (!backChoice && backChoice != index){
+			backChoice = index;
+		}
+	}
 	
-	//beginFight();
-	
-	//this begins the quest. Choose between several different environments and scenarios in each. At random points enemies will be encountered. If they are defeated,
-	//the player continues to another scenario. The enemy encounters are random and sometimes you can travel far without meeting one. The number of scenarios you have 
-	//pass through should be random as well. Possibly have a final boss? Player health should be high so you can survive multiple encounters or you should have a health
-	//restore system. maybe after encounters you can gain new abilities or new armor.
+	leftChoice ? $("#leftChoiceBtn").text(leftChoice) : $("#leftChoiceBtn").hide();
+	rightChoice ? $("#rightChoiceBtn").text(rightChoice) : $("#rightChoiceBtn").hide();
+	upChoice ? $("#upChoiceBtn").text(upChoice) : $("#upChoiceBtn").hide();
+	backChoice ? $("#downChoiceBtn").text(backChoice) : $("#downChoiceBtn").hide();
+	$("#gameChoices").show();
+	$("#playerChoices").hide();
+}
+
+function chooseEnvironment() {
+	$("#gameChoiceText").text("You have started your quest and reach a crossroads. Where will you go?");
+	leftChoice ? $("#leftChoiceBtn").text(leftChoice) : $("#leftChoiceBtn").hide();
+	rightChoice ? $("#rightChoiceBtn").text(rightChoice) : $("#rightChoiceBtn").hide();
+	upChoice ? $("#upChoiceBtn").text(upChoice) : $("#upChoiceBtn").hide();
+	backChoice ? $("#downChoiceBtn").text(backChoice) : $("#downChoiceBtn").hide();
+	$("#gameChoices").show();
+	$("#playerChoices").hide();
+}
+
+function buttonSelect(environment) {
+	var randomEncounter = Math.floor((Math.random() * 4) + 1);
+	if (randomEncounter == 3) { // change this back to 1
+		localStorage.setItem("environment", environment);
+		surviveSection = false;
+		beginFight();
+	}
+	else {
+		chooseNewEnvironment(surviveSection,environment);
+	}
 }

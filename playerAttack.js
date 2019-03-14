@@ -46,9 +46,11 @@ function playerAttackMove(){
 		}
 		//alert(monsterTypes[monsterID].type+" health is now at "+monsterHealth+" HP!");
 		if (monsterHealth <= 0){
-			alert("You have slain the "+monsterTypes[monsterID].type+"! The match is won!");
-			newMatch = false;
-			endFight();
+			alert("You have slain the "+monsterTypes[monsterID].type+"! The match is won! You can now proceed through the land.");
+			localStorage.setItem("playerHealth", playerHealth);
+			chooseNewEnvironment(true,localStorage.getItem("environment"));
+			//newMatch = false;
+			//endFight();
 		}
 		else {
 			battleProgress();
@@ -59,8 +61,10 @@ function playerAttackMove(){
 		monsterAttackMove();//since monster blocked, it attacks next
 	}
 	else if (monsterHealth <= 0){
-		alert("You have slain the "+monsterTypes[monsterID].type+"! The match is won!");
-		newMatch = false;
-		endFight();
+		alert("You have slain the "+monsterTypes[monsterID].type+"! The match is won! You can now proceed through the land.");
+		localStorage.setItem("playerHealth", playerHealth);
+		chooseNewEnvironment(true,localStorage.getItem("environment"));
+		//newMatch = false;
+		//endFight();
 	}
 }

@@ -23,7 +23,9 @@ var leftChoice;
 var rightChoice;
 var upChoice;
 var backChoice;
+var environment;
 var whoAttacks = Math.floor(Math.random() * 2);
+var surviveSection = true;
 
 function playerName(){
 	if (typeof(Storage) !== "undefined") {
@@ -133,6 +135,8 @@ function startGame(){
 	$("#classText").html("You have chosen the class: "+className+"<br> \nwith the ability of: "+abilityName);
 	$("#classCondition").html(classCondition);
 	$("#start").hide();
+	localStorage.setItem("className", className);
+	localStorage.setItem("abilityName", abilityName);
 	//alert("You have chosen the class: "+className+" \nwith the ability of: "+abilityName);
 	//alert(classCondition);
 	setTimeout(function (){

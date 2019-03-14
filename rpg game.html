@@ -30,20 +30,20 @@ body {
 <body>
 	<button id="start" onclick="startGame()">RPG Fight</button>
 	<br><br>
-	<form id="playerChoices">
+	<div id="playerChoices">
 		<h2 id="playerText"></h2>
 		<h2 id="classText"></h2>
 		<h2 id="classCondition"></h2>
 		<h2 id="locationText"></h2>
 		<h2 id="gameText"></h2>
-	</form>
+	</div>
 	<br><br>
-	<form id="gameChoices" hidden="true">
-		<h2 id="gameChoiceText">You have started your quest and reach a crossroads. Where will you go?</h2>
-		<button id="leftChoiceBtn"></button>
-		<button id="rightChoiceBtn"></button>
-		<button id="upChoiceBtn"></button>
-		<button id="downChoiceBtn"></button>
-	</form>
+	<div id="gameChoices" hidden="true">
+		<h2 id="gameChoiceText"></h2>
+		<button id="leftChoiceBtn" onclick="buttonSelect($('#leftChoiceBtn').text())"></button>
+		<button id="rightChoiceBtn" onclick="buttonSelect($('#rightChoiceBtn').text())"></button>
+		<button id="upChoiceBtn" onclick="buttonSelect($('#upChoiceBtn').text())"></button>
+		<button id="downChoiceBtn" onclick="buttonSelect($('#downChoiceBtn').text())"></button>
+	</div>
 </body>
 </html>

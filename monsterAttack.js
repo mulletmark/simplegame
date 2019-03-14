@@ -43,7 +43,7 @@ function monsterAttackMove(){
 		}
 		//alert("Your health is now at "+playerHealth+" HP!");
 		if (playerHealth <= 0){
-			alert("You have been slain by the "+monsterTypes[monsterID].type+"! The match is lost!");
+			alert("You have been slain by the "+monsterTypes[monsterID].type+"! The quest is lost!");
 			newMatch = false;
 			endFight();
 		}
@@ -57,7 +57,7 @@ function monsterAttackMove(){
 		battleProgress();
 	}
 	else if (playerHealth <= 0){
-		alert("You have been slain by the "+monsterTypes[monsterID].type+"! The match is lost!");
+		alert("You have been slain by the "+monsterTypes[monsterID].type+"! The quest is lost!");
 		newMatch = false;
 		endFight();
 	}

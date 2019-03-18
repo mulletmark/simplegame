@@ -25,7 +25,6 @@ var upChoice;
 var backChoice;
 var environment;
 var whoAttacks = Math.floor(Math.random() * 2);
-var surviveSection = true;
 
 function playerName(){
 	if (typeof(Storage) !== "undefined") {

@@ -20,10 +20,11 @@ function beginAdventure(){
 	Environments[13] = new newEnvironment("Arag Highway");
 
 	callNewEnvironment = function(){
+		leftChoice = ""; rightChoice = ""; upChoice = ""; backChoice = "";
 		var selection;
 		var firstOne = Math.floor(Math.random() * Environments.length);
 		var secondOne = Math.floor(Math.random() * Environments.length);
-		firstOne <= secondOne ? (firstOne == secondOne ? secondOne + 1 : selectEnvironments = Environments.slice(firstOne,secondOne)) : selectEnvironments = Environments.slice(secondOne,firstOne);
+		firstOne == secondOne ? Environments.slice(firstOne,secondOne + 1) : (firstOne <= secondOne ? selectEnvironments = Environments.slice(firstOne,secondOne) : selectEnvironments = Environments.slice(secondOne,firstOne));
 		localStorage.setItem("selectEnvironments", JSON.stringify(selectEnvironments));
 		
 		for (var i = selectEnvironments.length; i--;){ //if 1 element this loop isn't accessed
@@ -52,7 +53,7 @@ function beginAdventure(){
 	callNewEnvironment();
 }
 	
-function chooseNewEnvironment(surviveSection,environment) {
+function chooseNewEnvironment(environment) {
 	leftChoice = ""; rightChoice = ""; upChoice = ""; backChoice = "";	
 	$("#gameChoiceText").text("You have passed through the first land. Where will you go next?");
 	var arrayEnv = JSON.parse(localStorage.getItem("selectEnvironments"));
@@ -64,7 +65,14 @@ function chooseNewEnvironment(surviveSection,environment) {
 	if (arrayEnv.length == 0) {
 		$("#gameChoiceText").text("You have made it to your destination. The game is over.");
 		newMatch = false;
-		endFight();
+		$("#gameChoices").hide();
+		$("#leftChoiceBtn").show();
+		$("#rightChoiceBtn").show();
+		$("#upChoiceBtn").show();
+		$("#downChoiceBtn").show();		
+		setTimeout(function (){
+			endFight();
+		}, 1000);
 	}
 	for (var i = arrayEnv.length; i--;){
 		EnvironmentID = Math.floor(Math.random() * arrayEnv.length);
@@ -106,10 +114,9 @@ function buttonSelect(environment) {
 	var randomEncounter = Math.floor((Math.random() * 4) + 1);
 	if (randomEncounter == 3) { // change this back to 1
 		localStorage.setItem("environment", environment);
-		surviveSection = false;
 		beginFight();
 	}
 	else {
-		chooseNewEnvironment(surviveSection,environment);
+		chooseNewEnvironment(environment);
 	}
 }

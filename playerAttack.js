@@ -62,7 +62,9 @@ function playerAttackMove(){
 	}
 	else if (monsterHealth <= 0){
 		alert("You have slain the "+monsterTypes[monsterID].type+"! The match is won! You can now proceed through the land.");
+		//Save player health and armor for next battle
 		localStorage.setItem("playerHealth", playerHealth);
+		localStorage.setItem("playerArmorStrength", playerArmorStrength);		
 		chooseNewEnvironment(true,localStorage.getItem("environment"));
 		//newMatch = false;
 		//endFight();
